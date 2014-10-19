@@ -1,0 +1,34 @@
+{
+  "name": "gulp-deploy-azure-cdn",
+  "version": "1.0.0",
+  "description": "Gulp plugin for uploading files to Azure Blob Storage",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bestander/gulp-deploy-azure-cdn.git"
+  },
+  "keywords": [
+    "azure",
+    "deployment",
+    "ci",
+    "continuous integration",
+    "cdn",
+    "blob",
+    "upload",
+    "gulpplugin"
+  ],
+  "author": "Konstantin Raev",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bestander/gulp-deploy-azure-cdn/issues"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "homepage": "https://github.com/bestander/gulp-deploy-azure-cdn",
+  "dependencies": {
+    "deploy-azure-cdn": "git://github.com/bestander/deploy-azure-cdn",
+    "gulp-util": "^3.0.1",
+    "through2": "^0.6.3"
+  }
+}
