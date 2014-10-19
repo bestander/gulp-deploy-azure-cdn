@@ -24,13 +24,13 @@ npm install gulp-deploy-azure-cdn
 ### Deploying a set of files to a path in blob storage
 
 ```javascript
-var deployCdn = require('deploy-azure-cdn');
+var deployCdn = require('gulp-deploy-azure-cdn');
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 
 gulp.task('upload-app-to-azure', function () {
-    return gulp.src([outputBuildAppPath + '/**/*'], {
-        cwd: outputBuildPath + '/' + buildVersion
+    return gulp.src(['*.js','*.json'], {
+        cwd: 'node_modules/deploy-azure-cdn'
     }).pipe(deployCdn({
         containerName: 'test', // container name in blob
         serviceOptions: ['blobstoragename', '/OwQ/MyLongSecretStringFromAzureConfigPanel'], // custom arguments to azure.createBlobService

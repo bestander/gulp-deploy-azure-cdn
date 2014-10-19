@@ -34,7 +34,6 @@ module.exports = function (opt) {
                     if (err) {
                         self.emit('error', new gutil.PluginError(PLUGIN_NAME, err));
                     }
-                    console.log("FINISHED");
                     cb();
                 })
             } catch (err) {
