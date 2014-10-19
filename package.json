@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/bestander/gulp-deploy-azure-cdn",
   "dependencies": {
-    "deploy-azure-cdn": "git://github.com/bestander/deploy-azure-cdn",
+    "deploy-azure-cdn": "^1.0.1",
     "gulp-util": "^3.0.1",
     "through2": "^0.6.3"
   }
