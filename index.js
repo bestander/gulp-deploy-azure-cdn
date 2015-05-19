@@ -11,6 +11,8 @@ var deploy = require('deploy-azure-cdn');
 module.exports = function (opt) {
     var PLUGIN_NAME = 'gulp-deploy-azure-cdn ';
     var files = [];
+    // upload files all at once, not one by one because we want to get some speed
+    // doing it concurrently
     return through.obj(
         function (file, enc, cb) {
             var self = this;
