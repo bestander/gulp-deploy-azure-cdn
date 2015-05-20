@@ -30,7 +30,7 @@ var gutil = require('gulp-util');
 
 gulp.task('upload-app-to-azure', function () {
     return gulp.src(['*.js','*.json'], {
-        cwd: 'node_modules/deploy-azure-cdn'
+        base: 'node_modules/deploy-azure-cdn' // the base directory in which the file is located. The relative path of file to this directory is used as the destination path
     }).pipe(deployCdn({
         containerName: 'test', // container name in blob
         serviceOptions: ['blobstoragename', '/OwQ/MyLongSecretStringFromAzureConfigPanel'], // custom arguments to azure.createBlobService

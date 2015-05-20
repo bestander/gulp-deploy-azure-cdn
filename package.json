@@ -1,6 +1,6 @@
 {
   "name": "gulp-deploy-azure-cdn",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "Gulp plugin for uploading files to Azure Blob Storage",
   "main": "index.js",
   "repository": {
@@ -27,7 +27,7 @@
   },
   "homepage": "https://github.com/bestander/gulp-deploy-azure-cdn",
   "dependencies": {
-    "deploy-azure-cdn": "1.0.1",
+    "deploy-azure-cdn": "1.1.0",
     "gulp-util": "^3.0.1",
     "through2": "^0.6.3"
   }
