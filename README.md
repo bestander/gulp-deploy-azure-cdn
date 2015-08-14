@@ -30,7 +30,7 @@ var gutil = require('gulp-util');
 
 gulp.task('upload-app-to-azure', function () {
     return gulp.src(['*.js','*.json'], {
-        base: 'node_modules/deploy-azure-cdn' // the base directory in which the file is located. The relative path of file to this directory is used as the destination path
+        base: 'node_modules/deploy-azure-cdn' // optional, the base directory in which the file is located. The relative path of file to this directory is used as the destination path
     }).pipe(deployCdn({
         containerName: 'test', // container name in blob
         serviceOptions: ['blobstoragename', '/OwQ/MyLongSecretStringFromAzureConfigPanel'], // custom arguments to azure.createBlobService
@@ -48,7 +48,8 @@ gulp.task('upload-app-to-azure', function () {
 ```
 
 ### Parameters
-- `deployOptions` - azure cdn and upload configs
+- `gulp.src {base}` - use standard gulp configurations to skip some folders from relative file paths ([example](http://stackoverflow.com/questions/21224252/looking-for-way-to-copy-files-in-gulp-and-rename-based-on-parent-directory))
+- `deployCdn function argument` - azure cdn and upload configs
   - `serviceOptions`: [] - custom arguments to azure.createBlobService, or you can use Azure SDK environment variables AZURE_STORAGE_ACCOUNT and AZURE_STORAGE_ACCESS_KEY
   - `containerName`: null -  container name, required
   - `containerOptions`: {publicAccessLevel: "blob"} - container options
