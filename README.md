@@ -50,7 +50,7 @@ gulp.task('upload-app-to-azure', function () {
 ### Parameters
 - `gulp.src {base}` - use standard gulp configurations to skip some folders from relative file paths ([example](http://stackoverflow.com/questions/21224252/looking-for-way-to-copy-files-in-gulp-and-rename-based-on-parent-directory))
 - `deployCdn function argument` - azure cdn and upload configs
-  - `serviceOptions`: [] - custom arguments to azure.createBlobService, or you can use Azure SDK environment variables AZURE_STORAGE_ACCOUNT and AZURE_STORAGE_ACCESS_KEY
+  - `serviceOptions`: [] - Custom arguments to azure.createBlobService. If this array contains a single argument it will be interpreted as a blob connection string. If it contains two arguments then they will be interpreted as a blob account name and access key, respectively.
   - `containerName`: null -  container name, required
   - `containerOptions`: {publicAccessLevel: "blob"} - container options
   - `folder`: '', // path within container. Default is root directory of container
