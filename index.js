@@ -37,6 +37,8 @@ module.exports = function (opt) {
                 deploy(opt, files, logger, function (err) {
                     if (err) {
                         self.emit('error', new gutil.PluginError(PLUGIN_NAME, err));
+                    } else {
+                        self.emit('end');
                     }
                     cb();
                 })
