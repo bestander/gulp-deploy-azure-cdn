@@ -1,8 +1,9 @@
 'use strict';
 
 var through = require('through2');
-var gutil = require('gulp-util');
+var pluginError = require('plugin-error');
 var path = require('path');
+var fancyLog = require("fancy-log");
 var deploy = require('deploy-azure-cdn');
 
 /**
@@ -24,7 +25,7 @@ module.exports = function (opt) {
                 return cb();
             }
             if (file.isStream()) {
-                self.emit('error', new gutil.PluginError(PLUGIN_NAME, 'Streaming not supported'));
+                self.emit('error', new pluginError(PLUGIN_NAME, 'Streaming not supported'));
                 return cb();
             }
             files.push(file);
@@ -32,18 +33,18 @@ module.exports = function (opt) {
         },
         function (cb) {
             var self = this;
-            var logger = gutil.log.bind(PLUGIN_NAME);
+            var logger = fancyLog.bind(PLUGIN_NAME);
             try {
                 deploy(opt, files, logger, function (err) {
                     if (err) {
-                        self.emit('error', new gutil.PluginError(PLUGIN_NAME, err));
+                        self.emit('error', new pluginError(PLUGIN_NAME, err));
                     } else {
                         self.emit('end');
                     }
                     cb();
                 })
             } catch (err) {
-                self.emit('error', new gutil.PluginError(PLUGIN_NAME, err));
+                self.emit('error', new pluginError(PLUGIN_NAME, err));
                 cb();
             }
         });
